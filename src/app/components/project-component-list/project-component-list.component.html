@@ -1,0 +1,32 @@
+<button type="button" class="mb-5" (click)="showForm = true">
+    Přidat projekt
+</button>
+
+@if(showForm) {
+    <section class="border p-5 shadow mb-5 mx-5">
+        <form [formGroup]="formular" (ngSubmit)="onSubmit()">
+            <label class="w-full" for="title">Title</label>
+            <input id="title" formControlName="title" placeholder="title" type="text" class="w-full py-2 mb-5">
+
+            <label class="w-full" for="description">Description</label>
+            <textarea formControlName="description" id="description" class="w-full py-2 mb-5"></textarea>
+
+            <section class="flex gap-2">
+                <button type="button" class="bg-red-800" (click)="closeForm()">Zrušit</button>
+                <button type="submit" [disabled]="formular.invalid">Odeslat</button>
+            </section>
+        </form>
+    </section>
+} 
+
+
+@if(projects$ | async; as projects) {
+    @for(project of projects; track project) {
+        <section class="border p-5 shadow mb-5 mx-5">
+            <h2>{{project.title}} | {{project.description}}</h2>
+        </section>
+    } @empty {
+        Žádná data :-(
+    }
+}
+

@@ -1,0 +1,23 @@
+
+<ul class="flex gap-2 p-5 bg-slate-400 shadow">
+    <li>
+        <h1>Project Management FE</h1>
+    </li>
+    <li>
+        <a routerLink="/login">Login</a>
+       
+    </li>
+    <li>
+        <a routerLink="/register">Registrace</a>
+    </li>
+    <li>
+        <a routerLink="/home">Index</a>
+    </li>
+    <li>
+        {{user$ | async}}
+    </li>
+    <li>
+        <button type="button" (click)="logout()">Odhlásit</button>
+    </li>
+</ul>
+<router-outlet></router-outlet>
