@@ -19,11 +19,11 @@
     </section>
 } 
 
-
 @if(projects$ | async; as projects) {
     @for(project of projects; track project) {
         <section class="border p-5 shadow mb-5 mx-5">
             <h2>{{project.title}} | {{project.description}}</h2>
+            <a [routerLink]="['/', 'project', 'detail', 'asdas']">Detail</a>
         </section>
     } @empty {
         Žádná data :-(

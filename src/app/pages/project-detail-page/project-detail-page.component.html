@@ -1,0 +1,14 @@
+<section class="border p-5 shadow my-5 mx-5">
+    <form [formGroup]="formular">
+        <label class="w-full" for="title">Title</label>
+        <input id="title" formControlName="title" placeholder="title" type="text" class="w-full py-2 mb-5">
+
+        <label class="w-full" for="description">Description</label>
+        <textarea formControlName="description" id="description" class="w-full py-2 mb-5"></textarea>
+
+        <section class="flex gap-2">
+            <button type="button" class="bg-red-800">Zrušit</button>
+            <button type="submit" [disabled]="formular.invalid">Odeslat</button>
+        </section>
+    </form>
+</section>
